@@ -1,8 +1,3 @@
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-
 docker-compose.override.yml
 /.vscode
 .phpunit.result.cache
@@ -10,6 +5,11 @@ docker-compose.override.yml
 node_modules
 /public_html/hot
 /public_html/storage
+/public_html/**/*.js
+/public_html/**/*.css
+/public_html/**/*.jpg
+/public_html/**/*.png
+/public_html/**/*.gif
 /main/storage/*.key
 /main/vendor/
 /.idea
@@ -38,4 +38,4 @@ ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
 *.tgz
-public_html/*
+# public_html/*
