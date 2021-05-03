@@ -1,0 +1,13 @@
+{
+    "name": "PublicPages",
+    "alias": "publicpages",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\PublicPages\\Providers\\PublicPagesServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
