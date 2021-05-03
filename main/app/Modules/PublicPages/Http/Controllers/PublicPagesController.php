@@ -2,9 +2,10 @@
 
 namespace App\Modules\PublicPages\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Contracts\Support\Renderable;
 
 class PublicPagesController extends Controller
 {
@@ -14,6 +15,6 @@ class PublicPagesController extends Controller
    */
   public function index()
   {
-    return view('publicpages::app');
+    return Inertia::render('PublicPages::Welcome');
   }
 }

@@ -40,4 +40,44 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+  public function isSuperAdmin(): bool
+  {
+    return $this instanceof SuperAdmin;
+  }
+
+  public function isAdmin(): bool
+  {
+    return $this instanceof Admin;
+  }
+
+  public function isAppUser(): bool
+  {
+    return $this instanceof AppUser;
+  }
+
+  public function getUserType()
+  {
+    switch (true) {
+      case $this->isAdmin():
+        $user_type = ['isAdmin' => true];
+        break;
+      case $this->isSuperAdmin():
+        $user_type = ['isSuperAdmin' => true];
+        break;
+      case $this->isAppUser():
+        $user_type = ['isAppUser' => true];
+        break;
+      default:
+        $user_type = [];
+        break;
+    }
+    return array_merge($user_type, ['user_type' => strtolower($this->getType())]);
+  }
+
+
+  public function getType(): string
+  {
+    return class_basename(get_class($this));
+  }
 }
