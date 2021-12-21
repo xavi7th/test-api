@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,5 @@
 */
 
 Route::prefix('website')->group(function() {
-    Route::get('/', 'WebsiteController@index');
+    // Route::get('/', 'WebsiteController@index');
 });

@@ -25,8 +25,8 @@ class PostFactory extends Factory
     return [
       'website_id' => null,
       'title' => $this->faker->unique()->sentence(),
-      'description' => $this->faker->sentences(3),
-      'content' => $this->faker->sentences(15),
+      'description' => $this->faker->sentences(3,true),
+      'content' => $this->faker->sentences(15, true),
     ];
   }
 

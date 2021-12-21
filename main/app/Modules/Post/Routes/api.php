@@ -1,6 +1,8 @@
 <?php
 
+use App\Modules\Post\Http\Controllers\PostController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/post', function (Request $request) {
-    return $request->user();
+Route::prefix('posts')->group(function() {
+  Route::post('{website:name}/create', [PostController::class, 'store'])->name('posts.create');
 });

@@ -14,7 +14,7 @@ class CreatePostsTable extends Migration
       $table->string('title')->unique();
       $table->string('description');
       $table->text('content');
-      $table->timestamp('mail_sent_at');
+      $table->timestamp('mail_sent_at')->nullable();
 
       $table->timestamps();
     });

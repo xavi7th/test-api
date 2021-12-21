@@ -2,9 +2,11 @@
 
 namespace App\Modules\Website\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Modules\Website\Models\Website;
+use Illuminate\Contracts\Support\Renderable;
+use App\Modules\Website\Http\Requests\SubscribeToWebsiteRequest;
 
 class WebsiteController extends Controller
 {
@@ -28,12 +30,13 @@ class WebsiteController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param SubscribeToWebsiteRequest $request
      */
-    public function store(Request $request)
+    public function subscribe(SubscribeToWebsiteRequest $request, Website $website)
     {
-        //
+      $request->subscribeUserToWebsite();
+
+      return response()->json([], 201);
     }
 
     /**

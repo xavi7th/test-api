@@ -22,7 +22,7 @@ class WebsiteFactory extends Factory
   public function definition()
   {
     return [
-      'name' => $this->faker->unique()->domainWord
+      'name' => $this->faker->unique()->domainName
     ];
   }
 }

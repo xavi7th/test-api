@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Modules\Website\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/website', function (Request $request) {
-    return $request->user();
+Route::prefix('websites')->group(function() {
+  Route::post('{website:name}/subscribe', [WebsiteController::class, 'subscribe'])->name('websites.subscribe');
 });

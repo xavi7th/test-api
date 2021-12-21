@@ -2,9 +2,11 @@
 
 namespace App\Modules\Post\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Modules\Website\Models\Website;
+use Illuminate\Contracts\Support\Renderable;
+use App\Modules\Post\Http\Requests\CreatePostRequest;
 
 class PostController extends Controller
 {
@@ -28,12 +30,13 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param CreatePostRequest $request
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request, Website $website)
     {
-        //
+      $post = $request->createPost();
+
+      return response()->json($post, 201);
     }
 
     /**
