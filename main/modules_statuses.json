@@ -1,3 +1,7 @@
 {
-    "PublicPages": true
+    "PublicPages": true,
+    "Post": true,
+    "Websites": true,
+    "Website": true,
+    "Subscriber": true
 }
