@@ -18,7 +18,7 @@ class Website extends Model
   public function subscribers()
   {
     return $this->belongsToMany(Subscriber::class, $table = 'subscriber_website')->using(SubscriberWebsite::class)
-      ->as('subscriber')->withTimestamps();
+      ->as('subscription_details')->withTimestamps();
   }
 
   public function posts()

@@ -5,6 +5,7 @@ namespace App\Modules\Post\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Modules\Website\Models\Website;
+use App\Modules\Post\Events\PostCreated;
 use Illuminate\Contracts\Support\Renderable;
 use App\Modules\Post\Http\Requests\CreatePostRequest;
 
@@ -35,6 +36,8 @@ class PostController extends Controller
     public function store(CreatePostRequest $request, Website $website)
     {
       $post = $request->createPost();
+
+      event(new PostCreated($post));
 
       return response()->json($post, 201);
     }
